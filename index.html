@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/4102326_cloud_sun_sunny_weather_icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style/all.css">
+    <link rel="stylesheet" href="style/bootstrap.css">
+    <link rel="stylesheet" href="style/weather.css">
+    <link rel="stylesheet" href="style/media.css">
+    <title>Weather</title>
+</head>
+
+<body class="position-relative">
+    <!-- start navbar -->
+    <nav class="navbar navbar-expand-lg my-nav-style">
+        <div class="container position-relative">
+            <img src="img/logo.png" class="m-2">
+            <a class="navbar-brand text-white" href="#">Weather</a>
+            <p class="position-absolute">tagline goes here</p>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse li-style" id="navbarSupportedContent">
+                <ul class="navbar-nav w-50 ms-auto" id="nav-active">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Live cameras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Photo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End navbar -->
+    <!-- site background -->
+    <div class="background-img w-100"></div>
+    <div class="background-color1 w-100"></div>
+    <div class="background-color2 w-100"></div>
+    <!-- end background -->
+    <!-- search -->
+    <div class="search">
+        <input type="search" name="search" id="search" class="w-100 search-style" placeholder="Find Your Location">
+        <button id="find" class="button-style">Find</button>
+    </div>
+    <!-- end search -->
+    <!-- weather -->
+    <section class="container-weather w-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4 col-12 col-sm-12 first-style ">
+                    <!-- header -->
+                    <div class="w-100 header d-flex justify-content-between flex-nowrap align-items-center">
+                        <div id="currentDay" class="head-item"></div>
+                        <div id="currentDate" class="head-item"></div>
+                    </div>
+                    <!-- end header -->
+                    <h2 id="Location" class="head-item fs-3 ps-3 pt-2"></h2>
+                    <!-- Temp Body -->
+                    <div class="w-100" style="height: max-content;">
+                        <p id="Temp" class="temp text-white ms-5 w-auto ps-1 d-inline-block"></p>
+                        <img id="firstIcon" width="80" class="icon mb-3">
+                        <p id="condition" class="w-100 text-start ps-3"
+                            style="margin-top: -20px; color: #058FC8; font-weight: 500;"></p>
+                    </div>
+                    <!-- end body -->
+                    <!-- Footer -->
+                    <div class="mb-3 footer d-flex justify-content-around align-items-center">
+                        <div class="footer-item py-1 px-3">
+                            <img src="img/icon-umberella.png" style="margin-top: -5px;">
+                            <p id="rain" class="d-inline fw-lighter" style="color: rgba(255, 255, 255, 0.433);"></p>
+                        </div>
+                        <div class="footer-item py-1 px-3">
+                            <img src="img/icon-wind.png" style="margin-top: -5px;">
+                            <p id="wide" class="d-inline fw-lighter" style="color:rgba(255, 255, 255, 0.433);">
+                            </p>
+                        </div>
+                        <div class="footer-item py-1 px-3">
+                            <img src="img/icon-compass.png" style="margin-top: -5px;">
+                            <p class="d-inline fw-lighter" style="color: rgba(255, 255, 255, 0.433);">East
+                            </p>
+                        </div>
+                    </div>
+                    <!-- end footer -->
+                </div>
+                <div class="col-md-6 col-lg-4 col-12 col-sm-12 second-style">
+                    <!-- header -->
+                    <div class="w-100 header2 d-flex justify-content-center flex-nowrap align-items-center">
+                        <div id="secondDay" class="head-item"></div>
+                    </div>
+                    <!-- end header -->
+                    <!-- body -->
+                    <div class="d-flex justify-content-center align-items-center mt-4 flex-wrap">
+                        <img id="SecondIcon">
+                        <p id="SecondDayTemp" class="w-100 text-center text-white fw-bold mt-2 fs-2"></p>
+                        <p id="SecondDayCondition" class="w-100 text-center fs-5 fw-bold mt-5 ms-2"
+                            style="color: #058FC8; font-weight: 500;">
+                        </p>
+                    </div>
+                    <!-- end body -->
+                </div>
+                <div class="col-md-6 col-lg-4 col-12 col-sm-12 third-style">
+                    <!-- header -->
+                    <div class="w-100 header3 d-flex justify-content-center flex-nowrap align-items-center">
+                        <div id="ThirdDay" class="head-item"></div>
+                    </div>
+                    <!-- end header -->
+                    <!-- body -->
+                    <div class="d-flex justify-content-center align-items-center mt-4 flex-wrap">
+                        <img id="ThirdIcon">
+                        <p id="thirdDayTemp" class="w-100 text-center text-white fw-bold mt-2 fs-2"></p>
+                        <p id="thirdDayCondition" class="w-100 text-center fs-5 fw-bold mt-5 ms-2" style="color: #058FC8; font-weight: 500;">
+                        </p>
+                    </div>
+                    <!-- end body -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="sub position-absolute w-50 ms-3">
+        <input type="email" name="email" id="email" class="w-100 search-style" placeholder="Enter your Email">
+        <button id="subscribe" class="button-style">Subscribe</button>
+    </div>
+    <div class="icons d-flex justify-content-around  align-items-center">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-google"></i>
+        <i class="fa-brands fa-pinterest"></i>
+    </div>
+    <footer class="w-100">
+        <div class="fs-6 fw-light text-center position-absolute bottom-0 text-white w-100 mb-3">
+            Copyright <sub>2014</sub> Company name. Designed by Themezy. All rights reserved
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/weather.js"></script>
+</body>
+
+</html>
