@@ -5,6 +5,11 @@
 
 }
 
+::selection {
+    background-color: #009AD8;
+    color: white;
+}
+
 .my-nav-style {
     background-color: #1E202B !important;
     height: 130px;
