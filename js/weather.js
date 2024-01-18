@@ -19,7 +19,7 @@ const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
-let country="";
+let country;
 navigator.geolocation.getCurrentPosition(showPosition);
 function showPosition(position) {
     const latitude = position.coords.latitude;
