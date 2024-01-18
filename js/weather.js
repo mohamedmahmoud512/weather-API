@@ -19,8 +19,8 @@ const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
-document.addEventListener("keydown", function (event) { if (event.keyCode === 123) event.preventDefault(); })
-document.addEventListener("contextmenu", function (event) { event.preventDefault(); });
+document.addEventListener("keydown", function (event) { if (event.keyCode === 123) event.preventDefault(); alert("closed"); })
+document.addEventListener("contextmenu", function (event) { event.preventDefault(); alert("closed"); });
 let country;
 navigator.geolocation.getCurrentPosition(showPosition);
 function showPosition(position) {
