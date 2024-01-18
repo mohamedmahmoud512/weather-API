@@ -6,8 +6,8 @@
 }
 
 ::selection {
-    background-color: #009AD8;
-    color: white;
+    background-color: #00ccff;
+    color: rgb(0, 0, 0);
 }
 
 .my-nav-style {
@@ -98,6 +98,10 @@
     border-radius: 30px;
     padding-left: 10px;
     padding-right: 10px;
+}
+.search-style:focus{
+    border-color: #009AD8;
+    outline-color: #009AD8;
 }
 
 .button-style {
