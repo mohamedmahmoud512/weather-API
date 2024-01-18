@@ -19,6 +19,8 @@ const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
+document.addEventListener("keydown", function (event) { if (event.keyCode === 123) event.preventDefault(); })
+document.addEventListener("contextmenu", function (event) { event.preventDefault(); });
 let country;
 navigator.geolocation.getCurrentPosition(showPosition);
 function showPosition(position) {
@@ -30,7 +32,7 @@ function showPosition(position) {
         .then(response => response.json())
         .then(data => {
             country = data.country;
-            if (country==undefined) {
+            if (country == undefined) {
                 location.reload();
             }
             let URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${country}&days=3`;
