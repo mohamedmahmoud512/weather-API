@@ -43,12 +43,14 @@ function showPosition(position) {
 document.addEventListener("keydown", function (e) {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
     if (e.code == "Enter") {
+        text.value="";
         APIcall(URL);
     }
 })
 find.addEventListener("click", function () {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
     if (text.value != "") {
+        text.value="";
         APIcall(URL)
     }
 })
