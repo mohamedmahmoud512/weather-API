@@ -28,7 +28,7 @@ GEtLocation(showPosition)
 function showPosition(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    const apiUrl =  `https://geocode.xyz/${latitude},${longitude}?json=1`;
+    const apiUrl = `https://geocode.xyz/${latitude},${longitude}?json=1`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -66,6 +66,9 @@ find.addEventListener("click", function () {
 })
 getLocation.addEventListener("click", function () {
     GEtLocation(showPosition);
+    if(country!=undefined){
+    window.alert("Your Location is : "+country+" Success Set");
+    }
 })
 function APIcall(URL) {
     let weather = {};
