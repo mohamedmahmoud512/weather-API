@@ -36,6 +36,9 @@
         top: 30px;
         left: 90px;
     }
+    #getLocation{
+        right: 18%;
+    }
 }
 
 @media (max-width: 576px) {
@@ -52,6 +55,10 @@
         width: 100% !important;
         left: 0%;
         margin-left: 0 !important;
+    }
+    #getLocation{
+        right: 25%;
+        top: 300%;
     }
 
     .icons {
@@ -85,5 +92,8 @@
         position: absolute;
         bottom: 4%;
         justify-content: center;
+    }
+    #getLocation{
+        right: 22%;
     }
 }

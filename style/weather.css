@@ -220,3 +220,14 @@
     border-color: bisque;
     transform: rotateY(360deg);
 }
+#getLocation{
+    background-color: #009AD8;
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    height: 45px;
+    border: solid #009AD8;
+    border-radius: 30px;
+    right: 12%;
+    top: 5px;
+}

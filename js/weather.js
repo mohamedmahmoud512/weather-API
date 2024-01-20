@@ -1,5 +1,6 @@
 "use strict"
 const search = document.getElementById("search");
+const getLocation = document.getElementById("getLocation");
 const find = document.getElementById("find");
 const text = document.getElementById("condition");
 const firstIcon = document.getElementById("firstIcon");
@@ -20,11 +21,14 @@ const thirdDayCondition = document.getElementById("thirdDayCondition");
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
 let country;
-navigator.geolocation.getCurrentPosition(showPosition);
+function GEtLocation(showPosition) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+GEtLocation(showPosition)
 function showPosition(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    const apiUrl = `https://geocode.xyz/${latitude},${longitude}?json=1`;
+    const apiUrl =  `https://geocode.xyz/${latitude},${longitude}?json=1`;
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -43,16 +47,25 @@ function showPosition(position) {
 document.addEventListener("keydown", function (e) {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
     if (e.code == "Enter") {
-        text.value="";
-        APIcall(URL);
+        if (search.value != "") {
+            search.value = "";
+            APIcall(URL)
+        } else {
+            window.alert("please Enter country name ......");
+        }
     }
 })
 find.addEventListener("click", function () {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
-    if (text.value != "") {
-        text.value="";
+    if (search.value != "") {
+        search.value = "";
         APIcall(URL)
+    } else {
+        window.alert("please Enter country name ......");
     }
+})
+getLocation.addEventListener("click", function () {
+    GEtLocation(showPosition);
 })
 function APIcall(URL) {
     let weather = {};
