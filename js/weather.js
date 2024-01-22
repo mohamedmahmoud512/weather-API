@@ -1,4 +1,5 @@
 "use strict"
+//==========================================Dom-selector============================================================
 const search = document.getElementById("search");
 const getLocation = document.getElementById("getLocation");
 const find = document.getElementById("find");
@@ -18,6 +19,7 @@ const currentDay = document.getElementById("currentDay");
 const currentDate = document.getElementById("currentDate");
 const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
+//============================================variable & Array==========================================================
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
 let today;
@@ -37,7 +39,7 @@ function UserLocation() {
     })
 }
 UserLocation();
-//=========================================================================================
+//============================================= Event ==================================================
 document.addEventListener("keydown", function (e) {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
     if (e.code == "Enter") {
@@ -59,10 +61,10 @@ find.addEventListener("click", function () {
     }
 })
 getLocation.addEventListener("click", function () {
-    //===========================================
     UserLocation();
 })
-function APIcall(URL) {
+//========================================API-call======================================================
+    function APIcall(URL) {
     let weather = {};
     let HTTP = new XMLHttpRequest();
     HTTP.open("get", URL);
@@ -76,6 +78,7 @@ function APIcall(URL) {
         }
     })
 }
+//============================================First-Day==========================================================
 function getCurrentWeather(weather) {
     text.innerText = weather.current.condition.text;
     firstIcon.src = weather.current.condition.icon;
@@ -89,6 +92,7 @@ function getCurrentWeather(weather) {
     currentDay.innerText = daysOfWeek[today.getDay()];
     currentDate.innerText = today.getUTCDate() + monthNames[today.getUTCMonth()];
 }
+//=========================================Second_Day=============================================================
 function getSecondDayWeather(weather) {
     let secondDay = weather.forecast.forecastday[1];
     today = new Date(secondDay.date);
@@ -99,6 +103,7 @@ function getSecondDayWeather(weather) {
     SecondDayCondition.innerText = secondDay.day.condition.text;
     SecondIcon.src = secondDay.day.condition.icon;
 }
+//===========================================Third-Day===========================================================
 function getThirdDayWeather(weather) {
     let thirdDay = weather.forecast.forecastday[2];
     today = new Date(thirdDay.date);
@@ -109,3 +114,4 @@ function getThirdDayWeather(weather) {
     thirdDayCondition.innerText = thirdDay.day.condition.text;
     ThirdIcon.src = thirdDay.day.condition.icon;
 }
+//======================================================================================================
