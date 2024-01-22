@@ -20,30 +20,24 @@ const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
-let country;
-function GEtLocation(showPosition) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-}
-GEtLocation(showPosition)
-function showPosition(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    const apiUrl = `https://geocode.xyz/${latitude},${longitude}?json=1`;
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            country = data.country;
-            if (country == undefined) {
-                location.reload();
-            }
-            let URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${country}&days=3`;
+let today;
+let URL = "";
+//==================================== location =================================================
+function UserLocation() {
+    return new Promise(function () {
+        navigator.geolocation.getCurrentPosition(async function (position) {
+            let { latitude, longitude } = position.coords
+            let callURL = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=f0c358459a2d44f4b0741a4698d43e68`;
+            let Fetch = await fetch(callURL);
+            let data = await Fetch.json();
+            let Country = data.results[0].components.country;
+            URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${Country}&days=3`
             APIcall(URL);
         })
-        .catch(error => {
-            console.log("Error:", error);
-        });
+    })
 }
+UserLocation();
+//=========================================================================================
 document.addEventListener("keydown", function (e) {
     URL = `https://api.weatherapi.com/v1/forecast.json?key=0b0606b6b57041c4809132857241001&q=${search.value}&days=3`;
     if (e.code == "Enter") {
@@ -65,10 +59,8 @@ find.addEventListener("click", function () {
     }
 })
 getLocation.addEventListener("click", function () {
-    GEtLocation(showPosition);
-    if(country!=undefined){
-    window.alert("Your Location is : "+country+" Success Set");
-    }
+    //===========================================
+    UserLocation();
 })
 function APIcall(URL) {
     let weather = {};
@@ -84,7 +76,6 @@ function APIcall(URL) {
         }
     })
 }
-let today;
 function getCurrentWeather(weather) {
     text.innerText = weather.current.condition.text;
     firstIcon.src = weather.current.condition.icon;

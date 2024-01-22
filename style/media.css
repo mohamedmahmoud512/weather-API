@@ -57,10 +57,33 @@
         margin-left: 0 !important;
     }
     #getLocation{
-        right: 25%;
         top: 300%;
+        width: 96%;
+        right: 2%;
+        left: 2%;
     }
 
+    .button-style{
+        transform: translateX(-3%);
+    }
+    .temp {
+        width: 100% !important;
+        text-align: center ;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .icon {
+        margin: -10px;
+    }
+    .footer{
+    }
+    #condition{
+        position: absolute;
+        top: 70%;
+        right: 5%;
+        width: max-content !important;
+        padding-right: 2% !important;
+    }
     .icons {
         width: 100%;
         display: inline-block;
@@ -95,5 +118,26 @@
     }
     #getLocation{
         right: 22%;
+    }
+    .temp {
+        width: 100% !important;
+        text-align: center ;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .icon {
+        margin: -10px;
+    }
+    .footer{
+        position: absolute;
+        bottom: 2%;
+        width: 100%;
+    }
+    #condition{
+        position: absolute;
+        top: 70%;
+        right: 5%;
+        width: max-content !important;
+        padding-right: 2% !important;
     }
 }
