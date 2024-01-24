@@ -19,6 +19,7 @@ const currentDay = document.getElementById("currentDay");
 const currentDate = document.getElementById("currentDate");
 const SecondDayCondition = document.getElementById("SecondDayCondition");
 const thirdDayCondition = document.getElementById("thirdDayCondition");
+$(".container").show(2000)
 //============================================variable & Array==========================================================
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const monthNames = [" January", " February", " March", " April", " May", " June", " July", " August", " September", " October", " November", " December"];
@@ -64,7 +65,7 @@ getLocation.addEventListener("click", function () {
     UserLocation();
 })
 //========================================API-call======================================================
-    function APIcall(URL) {
+function APIcall(URL) {
     let weather = {};
     let HTTP = new XMLHttpRequest();
     HTTP.open("get", URL);
